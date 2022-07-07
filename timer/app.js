@@ -29,3 +29,6 @@ let start= ()=>{
             }
     },1000)
 }
+const reset = ()=>{
+    location.reload();
+}
