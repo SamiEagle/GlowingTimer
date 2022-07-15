@@ -2,10 +2,14 @@ const min = document.getElementById("min");
 const sec = document.getElementById("sec");
 
 let counterSec=0;
-let start= ()=>{
-    let counterMin= prompt("enter a number from 1 to 60");
-    if(counterMin>60 || counterMin<1) {
-    alert("I said between 1 to 60 -_-")
+let test;
+let isStopped= false;
+let start= (stop)=>{
+   let counterMin= prompt("enter a number from 1 to 60");
+    test = parseInt(counterMin);
+    if(counterMin>60 || counterMin<1 || !test) {
+    alert("I said a number between 1 to 60 -_-")
+    start();
     return;}
     min.innerHTML=counterMin;
  let randoName =   setInterval(()=>{
@@ -28,6 +32,10 @@ let start= ()=>{
             }
             }
     },1000)
+    
+    document.getElementById("stop").addEventListener('click', ()=> {
+        clearInterval(randoName)
+    })
 
 }
 const reset = ()=>{
